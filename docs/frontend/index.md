@@ -2,7 +2,7 @@
 
 ## 技術
 - JavaScript
-- React
+- Next.JS
 - Jest
 
 ## ディレクトリ
