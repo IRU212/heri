@@ -1,0 +1,26 @@
+@use '../../var/base' as var;
+
+.user{
+    width: 100%;
+
+    .content-cover{
+        width: 100%;
+        padding: var.$page-layout-cover-gap;
+        gap: 0 var.$page-layout-cover-gap;
+
+        .main-content-cover{
+            width: 100%;
+            height: fit-content;
+            padding: 26px;
+            background-color: rgb(241, 238, 238);
+            border-radius: 20px;
+        }
+
+        .sub-content-cover{
+            max-width: 340px;
+            width: 100%;
+            height: fit-content;
+            background-color: aquamarine;
+        }
+    }
+}

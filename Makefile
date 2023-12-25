@@ -19,6 +19,7 @@ start:
 	docker-compose start
 stop:
 	docker-compose stop
+
 app:
 	docker-compose exec app bash
 next:
@@ -38,7 +39,7 @@ seed:
 	docker-compose exec app php artisan db:seed
 test:
 	docker-compose exec app php artisan test
-cache:
+clear:
 	docker-compose exec app php artisan cache:clear
 	docker-compose exec app php artisan config:clear
 	docker-compose exec app php artisan route:clear

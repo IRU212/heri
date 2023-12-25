@@ -1,12 +1,12 @@
 version: '3'
 services:
   app:
-    container_name: app
+    container_name: heri_app
     build: ./docker/php
     volumes:
       - ./src/:/var/www/src
   next:
-    container_name: next
+    container_name: heri_next
     build: ./docker/next
     tty: true
     ports:
@@ -16,7 +16,7 @@ services:
     networks:
       - default
   nginx:
-    container_name: nginx
+    container_name: heri_nginx
     image: nginx
     ports:
       - ${NGINX_PORT}:80
@@ -26,18 +26,13 @@ services:
     working_dir: /var/www/src
     depends_on:
       - app
-  db:
-    container_name: db
+  database:
+    container_name: heri_database
     image: mysql:8.0
     ports:
-      - ${DB_PORT}:3306
-    command: --default-authentication-plugin=mysql_native_password
-    volumes:
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    env_file:
-      - .env
+      - 3306:3306
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: database
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./data/mysql:/var/lib/mysql
