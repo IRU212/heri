@@ -15,6 +15,9 @@ abstract class PasswordValueObject extends BaseValueObject implements PasswordVa
     /** @var string name */
     protected const NAME = '';
 
+    /** @var string attribute */
+    protected const ATTRIBUTE_NAME = '';
+
     /**
      * 初期化処理
      *
@@ -55,6 +58,16 @@ abstract class PasswordValueObject extends BaseValueObject implements PasswordVa
     public static function getName(): string
     {
         return static::NAME;
+    }
+
+    /**
+     * attributeを取得する
+     *
+     * @return string
+     */
+    public static function getAttributeName(): string
+    {
+        return static::ATTRIBUTE_NAME;
     }
 
     /**

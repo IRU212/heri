@@ -9,6 +9,9 @@ final class Password extends PasswordValueObject
     /** @var string name */
     protected const NAME = 'password';
 
+    /** @var string attribute */
+    protected const ATTRIBUTE_NAME = 'パスワード';
+
     /**
      * validation
      *

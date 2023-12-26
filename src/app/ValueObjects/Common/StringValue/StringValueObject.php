@@ -13,6 +13,9 @@ abstract class StringValueObject extends BaseValueObject implements StringValueO
     /** @var string name */
     protected const NAME = '';
 
+    /** @var string attribute */
+    protected const ATTRIBUTE_NAME = '';
+
     /**
      * 初期化処理
      *
@@ -22,6 +25,9 @@ abstract class StringValueObject extends BaseValueObject implements StringValueO
     {
         if (static::NAME === '') {
             throw new LogicException(static::class . 'のNAMEを設定してください。');
+        }
+        if (static::ATTRIBUTE_NAME === '') {
+            throw new LogicException(static::class . 'のATTRIBUTE_NAMEを設定してください。');
         }
         try {
             Validator::validate(
@@ -53,6 +59,16 @@ abstract class StringValueObject extends BaseValueObject implements StringValueO
     public static function getName(): string
     {
         return static::NAME;
+    }
+
+    /**
+     * attributeを取得する
+     *
+     * @return string
+     */
+    public static function getAttributeName(): string
+    {
+        return static::ATTRIBUTE_NAME;
     }
 
     /**

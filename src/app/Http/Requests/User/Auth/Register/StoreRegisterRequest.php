@@ -6,11 +6,24 @@ use App\Http\Requests\Common\BaseRequest;
 use App\ValueObjects\User\Email;
 use App\ValueObjects\User\Name;
 use App\ValueObjects\User\Password;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Log;
 
-final class StoreRegisterRequest extends FormRequest
+final class StoreRegisterRequest extends BaseRequest
 {
+    /**
+     * バリデーションエラーのカスタム属性の取得
+     *
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'name' => Name::getAttributeName(),
+            'email' => Email::getAttributeName(),
+            'password' => Password::getAttributeName()
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

@@ -15,9 +15,11 @@ class RegisterStoreResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => 1,
-            'name' => 'name',
-            'email' => 'email'
+            'status' => 1,
+            'link' => [
+                'origin_url' => $request->getUriForPath(''),
+                'url' => $request->fullUrl(),
+            ]
         ];
     }
 }

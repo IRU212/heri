@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Common;
 
-use App\ValueObjects\User\Name;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 abstract class BaseRequest extends FormRequest implements BaseRequestInterface
 {
@@ -14,5 +14,20 @@ abstract class BaseRequest extends FormRequest implements BaseRequestInterface
     public function authorize(): bool
     {
         return true;
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param  Validator  $validator
+     * @return void
+     *
+     * @throws HttpResponseException
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        $response['errors']  = $validator->errors()->toArray();
+
+        throw new HttpResponseException(response()->json($response));
     }
 }

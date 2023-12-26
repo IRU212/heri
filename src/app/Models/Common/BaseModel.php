@@ -2,6 +2,14 @@
 
 namespace App\Models\Common;
 
-abstract class BaseModel implements BaseModelInterface
+use Illuminate\Database\Eloquent\Model;
+
+abstract class BaseModel extends Model implements BaseModelInterface
 {
+    /**
+     * このモデルが使用するデータベース接続
+     *
+     * @var string
+     */
+    protected $connection = 'mysql';
 }

@@ -9,6 +9,9 @@ final class Name extends StringValueObject
     /** @var string name */
     protected const NAME = 'name';
 
+    /** @var string attribute */
+    protected const ATTRIBUTE_NAME = 'ユーザ名';
+
     /**
      * validation
      *

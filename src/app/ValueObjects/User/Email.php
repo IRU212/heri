@@ -9,6 +9,9 @@ final class Email extends StringValueObject
     /** @var string name */
     protected const NAME = 'email';
 
+    /** @var string attribute */
+    protected const ATTRIBUTE_NAME = 'メールアドレス';
+
     /**
      * validation
      *
@@ -16,7 +19,7 @@ final class Email extends StringValueObject
      */
     public static function rule(): string
     {
-        return 'required|string|email';
+        return 'required|string|email|unique:users';
     }
 
     /**

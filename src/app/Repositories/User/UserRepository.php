@@ -5,6 +5,7 @@ namespace App\Repositories\User;
 use App\Models\User;
 use App\Repositories\Common\BaseRepository;
 use App\UseCases\User\Auth\Register\RegisterStoreCommand;
+use App\ValueObjects\User\Id;
 use Illuminate\Support\Facades\Log;
 use RuntimeException;
 
@@ -15,15 +16,10 @@ final class UserRepository extends BaseRepository implements UserRepositoryInter
 
     /**
      * 初期化処理
-     *
-     * @param Model $model
      */
-    public function __construct(User $model)
+    public function __construct()
     {
-        if ($model === null) {
-            throw new RuntimeException('Userモデルが見つかりませんでした');
-        }
-        $this->model = $model;
+        $this->model = new User();
     }
 
     /**
@@ -45,5 +41,24 @@ final class UserRepository extends BaseRepository implements UserRepositoryInter
             $data['id'] = $command->id->getValue();
         }
         $this->model->fill($data)->save();
+    }
+
+    /**
+     * ユーザを保存 ユーザIDを返す
+     *
+     * @param RegisterStoreCommand $command
+     * @return Id
+     */
+    public function saveReturnId(RegisterStoreCommand $command): Id
+    {
+        Log::debug(__CLASS__ . '::' . __FUNCTION__ . ' called:(' . __LINE__ . ')');
+
+        $data = [
+            'name' => $command->name->getValue(),
+            'email' => $command->email->getValue(),
+            'password' => $command->password->makeHashPassword(),
+        ];
+        $this->model->fill($data)->save();
+        return Id::fromNative($this->model->id);
     }
 }

@@ -16,7 +16,7 @@ final class RegisterController extends Controller
         Log::debug(__CLASS__ . '::' . __FUNCTION__ . ' called:(' . __LINE__ . ')');
 
         $command = RegisterStoreCommand::setInput($request->validated());
-        $result = $action($command);
-        // return new RegisterStoreResource($request->validated());
+        $action($command);
+        return new RegisterStoreResource($request);
     }
 }
