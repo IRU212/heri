@@ -4,10 +4,11 @@ namespace App\Models;
 
 use App\Models\Common\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Sanctum\HasApiTokens;
 
 class UserToken extends BaseModel
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory;
 
     /**
      * The attributes that are mass assignable.

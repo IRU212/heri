@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 // LOG区切り用
 Log::debug('-------------------------------------------START-------------------------------------------');
 
-Route::name('auth')->prefix('auth')->group(function () {
-    Route::name('register')->prefix('register')->controller(RegisterController::class)->group(function () {
+Route::name('auth.')->prefix('auth')->group(function () {
+    Route::name('register.')->prefix('register')->controller(RegisterController::class)->group(function () {
         Route::post('/store', 'store')->name('store');
     });
 });

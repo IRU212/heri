@@ -12,4 +12,25 @@ abstract class BaseModel extends Model implements BaseModelInterface
      * @var string
      */
     protected $connection = 'mysql';
+
+    /**
+     * テーブルに関連付ける主キー
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+    /**
+     * 自動増分IDのデータ型
+     *
+     * @var int
+     */
+    protected $keyType = 'int';
+
+    /**
+     * モデルにタイムスタンプを付けるか
+     *
+     * @var bool
+     */
+    public $timestamps = true;
 }

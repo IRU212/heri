@@ -36,3 +36,10 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./data/mysql:/var/lib/mysql
+  mailhog:
+    container_name: heri_mailhog
+    image: mailhog/mailhog:latest
+    platform: linux/amd64
+    ports:
+      - "8025:8025"
+      - "1025:1025"
