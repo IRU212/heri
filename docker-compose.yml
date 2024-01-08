@@ -3,18 +3,10 @@ services:
   app:
     container_name: heri_app
     build: ./docker/php
+    ports:
+      - 5173:5173
     volumes:
       - ./src/:/var/www/src
-  next:
-    container_name: heri_next
-    build: ./docker/next
-    tty: true
-    ports:
-        - ${NEXT_PORT}:3000
-    volumes:
-      - ./next:/var/www/next
-    networks:
-      - default
   nginx:
     container_name: heri_nginx
     image: nginx

@@ -1,0 +1,50 @@
+.user-footer{
+	width: 100%;
+	background-color: #333;
+	color: #fff;
+	padding: 40px 100px;
+
+	.follow-us-block{
+		width: 100%;
+
+		.follow-us-title{
+
+		}
+
+		.follow-us-buttons-block{
+			width: 100%;
+			padding: 20px 0;
+			display: flex;
+			gap: 0 20px;
+
+			.facebook{
+				width: 26px;
+				color: #fff;
+				display: block;
+			}
+
+			.instagram{
+				width: 26px;
+				color: #fff;
+				display: block;
+			}
+
+			.twitter{
+				width: 26px;
+				color: #fff;
+				display: block;
+			}
+		}
+	}
+
+	.content-block{
+		width: 100%;
+
+		.content-lists-block{
+			width: 100%;
+			padding: 20px 0;
+			display: flex;
+			gap: 0 30px;
+		}
+	}
+}

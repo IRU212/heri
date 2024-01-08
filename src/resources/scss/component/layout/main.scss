@@ -1,0 +1,53 @@
+.main-block{
+	width: 100%;
+	height: fit-content;
+
+	.banner-block{
+		width: 100%;
+
+		.banner-list-block{
+			display: flex;
+
+			.banner-slider-image{
+				width: 100%;
+				height: 300px;
+				object-fit: cover;
+			}
+		}
+
+		.banner-slider-position-circle-block{
+			width: 100%;
+			text-align: center;
+			margin: 10px 0;
+
+			.banner-slider-position-circle{
+				width: fit-content;
+				margin: 0 auto;
+				display: flex;
+				gap: 0 8px;
+				list-style: disc;
+
+				li{
+					display: inline-block;
+
+					&::before{
+						content: "";
+						width: 8px;
+						height: 8px;
+						border: 2px solid black;
+						border-radius: 50%;
+						display: inline-block;
+					}
+
+					&:hover{
+						cursor: pointer;
+					}
+				}
+
+				.active-li::marker{
+					display: none;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+// layout
+@use './component/layout/main.scss';
+@use './component/layout/header.scss';
+@use './component/layout/footer.scss';
+
+// common
+@use './component/common/tag.scss';
